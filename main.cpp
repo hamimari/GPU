@@ -50,5 +50,20 @@ int main()
     for(int j=0; j<listValueRef.size(); j++){
         cout << listValueRef[j] << endl;
     }
+
+    // proses matching
+    if (listValueMaster.size() > listValueRef.size()){
+        for(int i = 0; i<listValueMaster.size(); i++){
+            cout << (find(listValueRef.begin(),listValueRef.end(),listValueMaster[i]) != listValueRef.end()) << "yeah dude" << endl;
+            cout << "iteration " << i << endl;
+        }
+    }
+    else {
+        for(int i = 0; i<listValueRef.size(); i++){
+            cout << (find(listValueMaster.begin(),listValueMaster.end(),listValueRef[i]) != listValueMaster.end()) << "uhuy dude" << endl;
+            cout << "iteration " << i << endl;
+        }
+    }
+
     return 0;
 }
