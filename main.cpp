@@ -9,25 +9,46 @@
 
 using namespace std;
 
-
 int main()
 {
-    std::ifstream  data("acc_master.csv");
+    // variable declare
+    std::ifstream master("acc_master.csv");
+    std::ifstream reff("acc_ref.csv");
     std::string line;
-    string arraylist [100000][100];
-    //ArrayList^ myAL = gcnew ArrayList;
+    //std::string line;
+    vector<std::string> listValueMaster;
+    vector<std::string> listValueRef;
 
-    while(std::getline(data,line))
+    // baca dari acc master masukan ke list
+    while(std::getline(master,line))
     {
         std::stringstream  lineStream(line);
         std::string        cell;
-        int i =0;
         while(std::getline(lineStream,cell,','))
         {
-            //data.getline(arraylist[i],100);
-            cout << line <<endl;
-            i=i+1;
+            listValueMaster.push_back(line);
         }
+    }
+
+    cout << "isi list data master" << endl;
+    for(int j=0; j<listValueMaster.size(); j++){
+        cout << listValueMaster[j] << endl;
+    }
+
+    // baca dari acc ref masukan ke list
+    while(std::getline(reff,line))
+    {
+        std::stringstream  lineStream(line);
+        std::string        cell;
+        while(std::getline(lineStream,cell,','))
+        {
+            listValueRef.push_back(line);
+        }
+    }
+
+    cout << "isi list data ref" << endl;
+    for(int j=0; j<listValueRef.size(); j++){
+        cout << listValueRef[j] << endl;
     }
     return 0;
 }
