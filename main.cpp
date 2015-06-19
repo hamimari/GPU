@@ -51,18 +51,28 @@ int main()
         cout << listValueRef[j] << endl;
     }
 
+    std::vector<string> listValueMatch;
     // proses matching
     if (listValueMaster.size() > listValueRef.size()){
         for(int i = 0; i<listValueMaster.size(); i++){
-            cout << (find(listValueRef.begin(),listValueRef.end(),listValueMaster[i]) != listValueRef.end()) << "yeah dude" << endl;
+            if ((find(listValueRef.begin(),listValueRef.end(),listValueMaster[i]) != listValueRef.end()) == 1){ // value match
+                listValueMatch.push_back(listValueMaster[i]);
+            }
             cout << "iteration " << i << endl;
         }
     }
     else {
         for(int i = 0; i<listValueRef.size(); i++){
-            cout << (find(listValueMaster.begin(),listValueMaster.end(),listValueRef[i]) != listValueMaster.end()) << "uhuy dude" << endl;
+            if ((find(listValueMaster.begin(),listValueMaster.end(),listValueRef[i]) != listValueMaster.end()) == 1){ // value match
+                listValueMatch.push_back(listValueRef[i]);
+            }
             cout << "iteration " << i << endl;
         }
+    }
+
+    cout << "hasil yang match" << endl;
+    for(int i = 0; i<listValueMatch.size(); i++){
+        cout << listValueMatch[i] << "olraigth dude";
     }
 
     return 0;
